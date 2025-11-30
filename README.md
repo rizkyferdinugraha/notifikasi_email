@@ -40,7 +40,7 @@ Sistem notifikasi email yang modern dan aman dengan antarmuka yang menarik. Diba
    ```php
    return [
        'smtp' => [
-           'host'       => 'smtp.hostinger.com',
+           'host'       => 'smtp. ... .com',
            'port'       => 465,
            'secure'     => 'ssl',
            'auth'       => true,
