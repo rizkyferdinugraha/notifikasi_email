@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Halaman notifikasi email dengan form input email">
+    <title>Email Notification</title>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="email-container">
+        <div class="email-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </div>
+        
+        <h1>Email Notification</h1>
+        <p class="subtitle">Masukkan alamat email Anda</p>
+        
+        <form id="emailForm" action="email/kirim_email.php" method="POST" novalidate>
+            <div class="form-group">
+                <label for="email">Alamat Email</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="nama@email.com" 
+                        required
+                        autocomplete="email"
+                        aria-label="Masukkan alamat email Anda"
+                    >
+                </div>
+            </div>
+            
+            <button type="submit" class="btn-submit">
+                Kirim
+            </button>
+        </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+

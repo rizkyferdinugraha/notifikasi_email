@@ -1,0 +1,445 @@
+/* ============================================
+   CSS Variables - Design Tokens
+   ============================================ */
+:root {
+    /* Colors */
+    --color-primary: #667eea;
+    --color-primary-dark: #764ba2;
+    --color-accent: #f093fb;
+    --color-text-primary: #333;
+    --color-text-secondary: #666;
+    --color-text-placeholder: #999;
+    --color-border: #e0e0e0;
+    --color-background: #f8f9fa;
+    --color-white: #ffffff;
+    --color-success: #10b981;
+    --color-success-light: #d1fae5;
+    --color-error: #ef4444;
+    --color-error-light: #fee2e2;
+    
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 15px;
+    --spacing-md: 20px;
+    --spacing-lg: 25px;
+    --spacing-xl: 30px;
+    --spacing-xxl: 40px;
+    --spacing-xxxl: 50px;
+    
+    /* Border Radius */
+    --radius-sm: 10px;
+    --radius-md: 20px;
+    
+    /* Shadows */
+    --shadow-sm: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    --shadow-md: 0 10px 25px rgba(102, 126, 234, 0.4);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
+    
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-slow: 0.6s;
+    
+    /* Typography */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 16px;
+    --font-size-sm: 14px;
+    --font-size-lg: 24px;
+    --font-size-xl: 28px;
+    --font-weight-normal: 500;
+    --font-weight-semibold: 600;
+    
+    /* Layout */
+    --container-max-width: 450px;
+    --icon-size: 80px;
+    --icon-size-mobile: 60px;
+}
+
+/* ============================================
+   Reset & Base Styles
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-md);
+}
+
+/* ============================================
+   Container Component
+   ============================================ */
+.email-container {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-xxxl) var(--spacing-xxl);
+    max-width: var(--container-max-width);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.email-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark), var(--color-accent));
+}
+
+/* ============================================
+   Email Icon Component
+   ============================================ */
+.email-icon {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.email-icon svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    fill: var(--color-primary);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ============================================
+   Typography Components
+   ============================================ */
+h1 {
+    text-align: center;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xxl);
+    font-size: var(--font-size-sm);
+}
+
+/* ============================================
+   Form Components
+   ============================================ */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+label {
+    display: block;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-normal);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper::before {
+    content: '✉';
+    position: absolute;
+    left: var(--spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    font-size: 18px;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 45px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-base);
+    transition: all var(--transition-fast);
+    outline: none;
+    background: var(--color-background);
+}
+
+input[type="email"]:focus {
+    border-color: var(--color-primary);
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+}
+
+input[type="email"]::placeholder {
+    color: var(--color-text-placeholder);
+}
+
+/* ============================================
+   Button Component
+   ============================================ */
+.btn-submit {
+    width: 100%;
+    padding: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-submit::before {
+    content: '📧';
+    margin-right: var(--spacing-xs);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-submit:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
+}
+
+.btn-submit:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-submit::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width var(--transition-slow), height var(--transition-slow);
+}
+
+.btn-submit:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* ============================================
+   Notification Component
+   ============================================ */
+.notification-container {
+    position: fixed;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-width: 400px;
+    width: 100%;
+    pointer-events: none;
+}
+
+.notification {
+    background: var(--color-white);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    position: relative;
+    overflow: hidden;
+    pointer-events: auto;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+    animation: slideInRight 0.4s ease-out forwards;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification.hide {
+    animation: slideOutRight 0.3s ease-in forwards;
+}
+
+.notification::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--color-primary);
+}
+
+.notification.success::before {
+    background: var(--color-success);
+}
+
+.notification.error::before {
+    background: var(--color-error);
+}
+
+.notification-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.notification.success .notification-icon {
+    background: var(--color-success-light);
+    color: var(--color-success);
+}
+
+.notification.error .notification-icon {
+    background: var(--color-error-light);
+    color: var(--color-error);
+}
+
+.notification-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-title {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    margin-bottom: 2px;
+}
+
+.notification-message {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    color: var(--color-text-secondary);
+    font-size: 18px;
+    line-height: 1;
+    opacity: 0.6;
+    transition: opacity var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}
+
+.notification-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--color-primary);
+    width: 100%;
+    transform-origin: left;
+    animation: progressBar 5s linear forwards;
+}
+
+.notification.success .notification-progress {
+    background: var(--color-success);
+}
+
+.notification.error .notification-progress {
+    background: var(--color-error);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+}
+
+@keyframes progressBar {
+    from {
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(0);
+    }
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 480px) {
+    .notification-container {
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+        left: var(--spacing-sm);
+        max-width: none;
+    }
+
+    .email-container {
+        padding: var(--spacing-xxl) var(--spacing-xl);
+    }
+
+    h1 {
+        font-size: var(--font-size-lg);
+    }
+
+    .email-icon svg {
+        width: var(--icon-size-mobile);
+        height: var(--icon-size-mobile);
+    }
+}
+
