@@ -99,7 +99,7 @@ Edit file `config/config.php` dengan kredensial SMTP Anda:
 
 | Parameter | Deskripsi | Contoh |
 |-----------|-----------|--------|
-| `host` | Alamat SMTP server | `smtp.hostinger.com` |
+| `host` | Alamat SMTP server | `smtp. ... .com` |
 | `port` | Port SMTP | `465` (SSL) atau `587` (TLS) |
 | `secure` | Tipe enkripsi | `ssl` atau `tls` |
 | `username` | Email SMTP | `your-email@domain.com` |
@@ -107,27 +107,6 @@ Edit file `config/config.php` dengan kredensial SMTP Anda:
 | `from_email` | Email pengirim | `your-email@domain.com` |
 | `from_name` | Nama pengirim | `Admin Web Notifikasi` |
 
-### Konfigurasi SMTP Populer
-
-#### Hostinger
-```php
-'host' => 'smtp.hostinger.com',
-'port' => 465,
-'secure' => 'ssl',
-```
-
-#### Gmail
-```php
-'host' => 'smtp.gmail.com',
-'port' => 587,
-'secure' => 'tls',
-```
-
-#### Mailtrap (Testing)
-```php
-'host' => 'smtp.mailtrap.io',
-'port' => 2525,
-'secure' => 'tls',
 ```
 
 ## 🎯 Cara Penggunaan
